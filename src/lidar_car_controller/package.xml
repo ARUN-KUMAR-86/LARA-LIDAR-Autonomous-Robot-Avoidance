@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>lidar_car_controller</name>
+  <version>0.0.1</version>
+  <description>Obstacle detection and avoidance for lidar car</description>
+  <maintainer email="arun@todo.todo">arun</maintainer>
+  <license>MIT</license>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <buildtool_depend>ament_python</buildtool_depend>
+  <test_depend>ament_copyright</test_depend>
+  <test_depend>ament_pep8</test_depend>
+  <test_depend>ament_pyflakes</test_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

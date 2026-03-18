@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <world name="maze_world">
+
+    <include><uri>model://ground_plane</uri></include>
+    <include><uri>model://sun</uri></include>
+
+    <!-- Ambient light -->
+    <light name="ambient_light" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <diffuse>0.6 0.6 0.6 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>-0.5 0.5 -1</direction>
+    </light>
+
+    <!-- ═══════════════════════════════════════════════
+         OUTER BOUNDARY  (12 x 12 arena)
+    ═══════════════════════════════════════════════ -->
+    <model name="wall_N"><static>true</static><pose>0 6 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>12.2 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>12.2 0.2 1.5</size></box></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient></material></visual></link></model>
+
+    <model name="wall_S"><static>true</static><pose>0 -6 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>12.2 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>12.2 0.2 1.5</size></box></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient></material></visual></link></model>
+
+    <model name="wall_E"><static>true</static><pose>6 0 0.75 0 0 1.5708</pose>
+      <link name="l"><collision name="c"><geometry><box><size>12.2 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>12.2 0.2 1.5</size></box></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient></material></visual></link></model>
+
+    <model name="wall_W"><static>true</static><pose>-6 0 0.75 0 0 1.5708</pose>
+      <link name="l"><collision name="c"><geometry><box><size>12.2 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>12.2 0.2 1.5</size></box></geometry>
+        <material><ambient>0.7 0.7 0.7 1</ambient></material></visual></link></model>
+
+    <!-- ═══════════════════════════════════════════════
+         INNER MAZE WALLS
+    ═══════════════════════════════════════════════ -->
+    <!-- Horizontal segments -->
+    <model name="mwall_h1"><static>true</static><pose>-1 3 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>4 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>4 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <model name="mwall_h2"><static>true</static><pose>2 1 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>3 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>3 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <model name="mwall_h3"><static>true</static><pose>-2 -1 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>3 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>3 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <model name="mwall_h4"><static>true</static><pose>1 -3 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>4 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>4 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <!-- Vertical segments -->
+    <model name="mwall_v1"><static>true</static><pose>3 4 0.75 0 0 1.5708</pose>
+      <link name="l"><collision name="c"><geometry><box><size>4 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>4 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <model name="mwall_v2"><static>true</static><pose>-3 0 0.75 0 0 1.5708</pose>
+      <link name="l"><collision name="c"><geometry><box><size>3.5 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>3.5 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <model name="mwall_v3"><static>true</static><pose>0 -2 0.75 0 0 1.5708</pose>
+      <link name="l"><collision name="c"><geometry><box><size>2 0.2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>2 0.2 1.5</size></box></geometry>
+        <material><ambient>0.5 0.3 0.1 1</ambient></material></visual></link></model>
+
+    <!-- ═══════════════════════════════════════════════
+         SCATTERED OBSTACLES
+    ═══════════════════════════════════════════════ -->
+    <!-- Cylinders -->
+    <model name="cyl1"><static>true</static><pose>4 -4 0.5 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.3</radius><length>1.0</length></cylinder></geometry>
+        <material><ambient>1 0.3 0 1</ambient></material></visual></link></model>
+
+    <model name="cyl2"><static>true</static><pose>-4 4 0.5 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><cylinder><radius>0.25</radius><length>1.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.25</radius><length>1.0</length></cylinder></geometry>
+        <material><ambient>0.2 0.6 1 1</ambient></material></visual></link></model>
+
+    <model name="cyl3"><static>true</static><pose>-4 -4 0.5 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><cylinder><radius>0.35</radius><length>1.0</length></cylinder></geometry></collision>
+      <visual name="v"><geometry><cylinder><radius>0.35</radius><length>1.0</length></cylinder></geometry>
+        <material><ambient>0.8 0.1 0.8 1</ambient></material></visual></link></model>
+
+    <!-- Boxes at angles -->
+    <model name="diag_box1"><static>true</static><pose>4 2 0.5 0 0 0.523</pose>
+      <link name="l"><collision name="c"><geometry><box><size>0.5 1.2 1</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.5 1.2 1</size></box></geometry>
+        <material><ambient>0.2 0.8 0.2 1</ambient></material></visual></link></model>
+
+    <model name="diag_box2"><static>true</static><pose>-4 -2 0.5 0 0 0.785</pose>
+      <link name="l"><collision name="c"><geometry><box><size>0.6 1.0 1</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.6 1.0 1</size></box></geometry>
+        <material><ambient>0.8 0.8 0.1 1</ambient></material></visual></link></model>
+
+    <!-- Narrow corridor blocker (forces robot to navigate precisely) -->
+    <model name="narrow_a"><static>true</static><pose>0.6 5 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>0.2 2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 2 1.5</size></box></geometry>
+        <material><ambient>0.9 0.1 0.1 1</ambient></material></visual></link></model>
+
+    <model name="narrow_b"><static>true</static><pose>-0.6 5 0.75 0 0 0</pose>
+      <link name="l"><collision name="c"><geometry><box><size>0.2 2 1.5</size></box></geometry></collision>
+      <visual name="v"><geometry><box><size>0.2 2 1.5</size></box></geometry>
+        <material><ambient>0.9 0.1 0.1 1</ambient></material></visual></link></model>
+
+  </world>
+</sdf>

@@ -1,0 +1,30 @@
+
+# ROS2 build artifacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# VS Code
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+
+# Gazebo
+~/.gazebo/
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*~
+EOF
+```
+
+---
