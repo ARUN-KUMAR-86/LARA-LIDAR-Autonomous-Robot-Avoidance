@@ -1,6 +1,7 @@
 # Lidar Car — Autonomous Obstacle Avoidance
 ROS2 Humble + Gazebo Classic simulation of a differential drive
 robot using 2D LiDAR and Vector Field Histogram (VFH) navigation.
+https://youtu.be/ngs3ylgHqjU
 
 ## Features
 - 360° LiDAR obstacle detection
